@@ -669,7 +669,9 @@ fu! s:KillByIndex(idx)
 
     " update LRU
     let lruidx = index(s:LRUBids, bid)
-    call remove(s:LRUBids, lruidx)
+    if lruidx > 0
+        call remove(s:LRUBids, lruidx)
+    endif
 
     call bufferhint#Popup()
 endfu
