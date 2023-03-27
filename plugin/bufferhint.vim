@@ -171,9 +171,7 @@ endfu
 
 fu! s:OnCursorMoved()
     call s:DrawHints()
-    if g:bufferhint_SortMode == 0
-        let s:CursorLine = line(".")
-    endif
+    let s:CursorLine = line(".")
 endfu
 
 fu! bufferhint#SwitchMode()
@@ -186,11 +184,7 @@ endfu
 
 fu! s:ModeReady()
     let mode = g:bufferhint_SortMode
-    if mode == 0
-        call s:Goto(s:CursorLine)
-    elseif mode == 1
-        call bufferhint#Scroll("top")
-    endif
+    call s:Goto(s:CursorLine)
 endfu
 
 fu! s:GetModeBids()
